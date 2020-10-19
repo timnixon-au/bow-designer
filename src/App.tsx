@@ -1,10 +1,15 @@
 import React from 'react';
-import ButtonPage from './Components/ButtonPage'
+import { Navbar } from './Components/Header'
+import { Footer } from './Components/Footer'
+import { Home } from './Views/Home'
+import './App.scss'
 
 function App() {
   return (
     <div className="App">
-      <ButtonPage />
+      <Navbar />
+        <Home />
+      <Footer />
     </div>
   );
 }
