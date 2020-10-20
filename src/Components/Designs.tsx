@@ -1,7 +1,20 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { MDBContainer,MDBRow, MDBCol } from "mdbreact";
 
 export const Designs = (props:any) => {
+
+const handleDesignMouseOver = (e:MouseEvent) => {
+    console.log('something')
+}
+
+const CalculateBorderColor = (id:string) => {
+        let result
+        if(id === "2") {
+            result = "border-red"
+        }
+            return (result)
+}
+
     return (
         <MDBContainer fluid>
             <MDBRow>
@@ -9,7 +22,7 @@ export const Designs = (props:any) => {
             </MDBRow>
             
             <MDBRow>
-                <MDBCol md="4">
+                <MDBCol md="4" onMouseOver={handleDesignMouseOver} className={CalculateBorderColor("1")}>
                     <img src="./../../images/logo.png"></img>
                     <p className="align-center">{props.Name}</p>
                 </MDBCol>

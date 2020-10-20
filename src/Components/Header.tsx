@@ -7,7 +7,7 @@ import './Header.scss'
 
 export const Navbar = () => {
     return (
-        <MDBNavbar className="justify-content-start" color="white">
+        <MDBNavbar className="justify-content-center" color="white">
             <img className="logo" src="./../images/logo.png"></img>
             <MDBNavbarBrand className="p-3">
                 <div>
