@@ -11,8 +11,6 @@ export const getAllDesigns = client
 })
 .catch(error => console.error('Error: ', error.message));
 
-export const getAllMaterials;
-
 export const getAllMaterials = client
 .query(q.Paginate(q.Match(q.Ref('indexes/all_materials'))))
 .then(response => {
