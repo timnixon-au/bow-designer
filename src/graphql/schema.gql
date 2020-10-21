@@ -1,0 +1,95 @@
+type material {
+    id:ID!
+    name: String!
+    src: String!
+    quantity: Int!
+    material_pathMap: [material_pathMap]
+}
+
+
+type path {
+    id:ID!
+   title: String!
+   defaultFill: String!
+   editable: Boolean!
+   nodeValue: String!
+   grouped: Boolean!
+   group: group
+   design: design
+   material_pathMap: [material_pathMap]
+}
+
+type group {
+    id:ID!
+    title: String!
+    editable: Boolean!
+    design: design!
+}
+
+type design {
+   id:ID!
+   title: String!
+   displayName: String!
+   groups: [group]
+   bows: bow
+}
+
+type material_pathMap {
+    id:ID!
+    path: path!
+    material: material!
+}
+
+type user {
+    name: String!
+    email: String!
+    phone: String!
+    role: String!
+    loggedIn: Boolean!
+    streetNo: String
+    street: String
+    suburb: String
+    state: String
+    bows: [bow]
+    orders: [user]
+}
+
+type bow {
+    id: ID!
+    design: design!
+    user: user!
+    bow_material_pathMap: [bow_material_pathMap!]
+    bow_orderMaps: [bow_orderMap!]
+}
+
+type bow_material_pathMap {
+    id: ID!
+    material_pathMap: [material_pathMap!]
+    bow: [bow!]
+}
+
+type order {
+    id: ID!
+    value: Float!
+    bow_orderMaps: [bow_orderMap!]
+    user: user!
+    paid: Boolean!
+    shipped: Boolean!
+    trackingNo: String
+}
+
+type bow_orderMap {
+    id: ID!
+    bow: bow!
+    order: order!
+    quantity: Int!
+}
+
+type Query {
+   allDesigns: [design!]
+}
+
+
+
+
+

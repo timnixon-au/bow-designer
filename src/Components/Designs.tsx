@@ -4,7 +4,7 @@ import { MDBContainer,MDBRow, MDBCol } from "mdbreact";
 export const Designs = (props:any) => {
 
 const handleDesignMouseOver = (e:MouseEvent) => {
-    console.log('something')
+   console.log('something')
 }
 
 const CalculateBorderColor = (id:string) => {

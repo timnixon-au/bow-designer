@@ -1,6 +1,6 @@
 import React, { ChangeEvent, Component, MouseEvent, useState, useEffect } from "react";
 import { MDBContainer, MDBBtn } from "mdbreact";
-import { createBow, getAllDesigns } from './../api/'
+import { createBow, getAllDesigns, getAllMaterials } from './../api/'
 
 export const Preview = () => {
 
@@ -10,31 +10,39 @@ const [bows, setBows] = useState([]);
 let res
 
 useEffect(() => {
-    getAllDesigns.then((res:any) => {
+    getAllMaterials.then((res:any) => {
       setBows(res);
       console.log(res);
+      mapDesigns(res);
     });
   }, []);
 
+const mapDesigns = (res:any) => {
+  Map(res.resource.data)
+  return (
+    <div></div>
+  )
+}
+
+
 const resetInputField = () => {
     setBowDetail('')
-    return (<></>)
+    return (<div></div>)
 }
 
 const handleBowDetailChange:any = (event:any) => {
     console.log(event.target.value);
     setBowDetail(event.target.value);
-    return (<></>)
+    return (<div></div>)
   }
 
 const handleClick = (event :any) => {
-    console.log(process.env.DB_KEY)
     event.preventDefault();
     createBow(bowDetail).then((res:any) => {
       console.log('Expense details added to the database');
     });
     resetInputField();
-    return (<></>)
+    return (<div></div>)
 }
     return (
         <MDBContainer fluid>
